@@ -16,5 +16,22 @@ export const cardService = {
             },
             body: JSON.stringify(card)
         }).then(res => res.json())
+    },
+    async fetchQuizz(card, date = new Date()) {
+        return fetch(`${URL_API}/cards/quizz/?$date=${date.toISOString().split('T')[0]}`, {
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(card)
+        }).then(res => res.json())
+    },
+    async answerQuestion(cardId, isValid) {
+        await fetch(`${URL_API}/cards/${cardId}/answer`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ isValid })
+        })
     }
 }
