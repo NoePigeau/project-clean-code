@@ -1,6 +1,20 @@
 # Projet Cleancode 
 (Pair programming with Noé PIGEAU and Alexandre HARDY)
 
+BACKEND: build with Express and Sequelize
+
+folders:
+  - models: all models are listed here for each entity
+  - services: functions for models to interact with db group by entity
+  - controllers: function to handle action group by entity
+  - routes: all routes are listed here group by entity
+
+FRONTEND: build with React
+
+folders:
+  - components: all components are here
+  - services: functions to interact with backend group by entity
+
 ## 1 - setup backend
 
 ### Init database
@@ -55,4 +69,7 @@ npm run dev
 ```
 
 
+## More informations
+
+Each question can be only answered one time per day
 
