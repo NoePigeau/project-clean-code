@@ -36,9 +36,12 @@ const App = () => {
           <section>
             <h1 className="text-xl font-bold mb-8"> All cards </h1>
             <div className="flex gap-6 flex-wrap">
-              {allCards?.map((card) => {
+              {allCards && allCards.map((card) => {
                 return <Card key={card.id} card={card} />;
               })}
+              {!allCards && (
+                <p> No cards found. </p>
+              )}
             </div>
           </section>
         </div>

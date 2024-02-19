@@ -1,5 +1,5 @@
 const cardService = require("../services/card")
-const { filterCardsByCategoriesAvailables, getNextCategory, INITIAL_CATEGORY } = require("../utils/handle-quizz")
+const { filterCardsByCategoriesAvailables, getNextCategory, INITIAL_CATEGORY, notAnsweredToday } = require("../utils/handle-quizz")
 
 const cardController = {
     getCollection: async (req, res, next) => {
@@ -26,10 +26,11 @@ const cardController = {
     getQuizz: async (req, res, next) => {
         const { query } = req
 
-        const quizzDate = query.$date ?? new Date().toISOString().split("T")[0] 
+        const quizzDate = query.$date ?? new Date().toDateString()
         try {
             const cards = await cardService.findAll()
-            const availableCards = filterCardsByCategoriesAvailables(cards, quizzDate)
+            const filteredCards = cards.filter(notAnsweredToday)
+            const availableCards = filterCardsByCategoriesAvailables(filteredCards, quizzDate)
             res.json(availableCards)
         } catch (err) {
             next(err)
