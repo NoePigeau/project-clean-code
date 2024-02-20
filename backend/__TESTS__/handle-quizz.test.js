@@ -17,18 +17,6 @@ describe("getNextCategory", () => {
     })
 })
 
-describe("removeTimeFromDate", () => {
-    it("function should return a date without time", () => {
-        const dateString = "2024-01-14T14:42:21.677Z"
-        expect(removeTimeFromDate(dateString)).toEqual(new Date("2024-01-14"))
-    })
-
-    it("function should return undefined", () => {
-        const dateString = "what"
-        expect(removeTimeFromDate(dateString)).toBeUndefined()
-    })
-})
-
 describe("filterCardsByCategoriesAvailables", () => {
     const cards = [
         {

@@ -1,6 +1,16 @@
 # Projet Cleancode 
 (Pair programming with Noé PIGEAU and Alexandre HARDY)
 
+Schema DDD (Domain Driven Development)  
+Schema architecture Hexagonal  
+See the file "DDD and Hexagonal.png"  
+
+### Precisions on the schema
+On the shema DDD we indicated that a questionnaire is composed of question and not card because the questionnaire
+is only composed of question the answers are out of subjects
+
+## Project structure
+
 BACKEND: build with Express and Sequelize
 
 folders:
@@ -47,9 +57,11 @@ npm run migrate
 npm run dev 
 ```
 
-You have to create one user to use the app
+### Run tests
 
-Go to requests.http file and run the request ### CREATE USER
+``` 
+npm run test 
+```
 
 ## 1 - setup frontend
 
@@ -71,5 +83,6 @@ npm run dev
 
 ## More informations
 
-Each question can be only answered one time per day
+### We did the first bonus  
+The quiz of the day can be answered in several times a day, but each question can be answered only once a day.
 
